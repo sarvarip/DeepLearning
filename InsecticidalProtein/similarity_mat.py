@@ -102,17 +102,6 @@ def reduce(seqs, labels, prepend):
         output = open(path, 'w+b')
         pickle.dump(labels, output)
         output.close()
-        
-        pdb_dirpath = './pdbid'
-        pdb_ids = []
-        for fn in os.listdir(pdb_dirpath):
-            handle = open(os.path.join(pdb_dirpath, fn), 'r')
-            pdb_ids, num_seq = parse_append(handle.read().split('\n'), pdb_ids)
-            handle.close()
-        path = "./" + prepend + "_pdb_ids" + ".pickle"
-        output = open(path, 'w+b')
-        pickle.dump(pdb_ids, output)
-        output.close()
   
 if __name__ == '__main__':
     seqs, labels = extract_pos()
